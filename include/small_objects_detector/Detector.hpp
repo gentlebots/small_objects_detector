@@ -27,6 +27,7 @@
 #include "pcl/filters/extract_indices.h"
 #include "pcl/segmentation/sac_segmentation.h"
 #include "pcl/sample_consensus/ransac.h"
+#include <pcl/filters/statistical_outlier_removal.h>
 
 namespace small_objects_detector
 {

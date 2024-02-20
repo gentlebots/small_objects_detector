@@ -116,6 +116,20 @@ const
     cloud_filtered_ptr_inliers.swap(cloud_f);
   } while (cloud_p->size() > plane_size_);
 
+  //----------------------------------------------------
+  // StatisticalOutlierRemoval Filter
+  //----------------------------------------------------
+  // Create the filtering object
+  pcl::StatisticalOutlierRemoval<pcl::PointXYZRGB> f;
+  // pass the input point cloud to the processing module
+  f.setInputCloud (cloud_f);
+  // set some parameters 
+  f.setMeanK (50); 
+  f.setStddevMulThresh (3.0);
+  // get the output point cloud
+  f.filter (*cloud_f);
+  // std::cerr << "PointCloud inliners: " << cloud_filtered_ptr_inliers->width * cloud_filtered_ptr_inliers->height << " data points." << std::endl;
+
   // Create output pointcloud
   pcl::PointCloud<pcl::PointXYZRGB> out_pointcloud = *cloud_f;
 
