@@ -29,7 +29,7 @@ Detector::Detector()
 
   subscription_pointcloud_ =
     create_subscription<sensor_msgs::msg::PointCloud2>(
-    "/pointcloud_in", 1,
+    "/pointcloud_in", rclcpp::SensorDataQoS().best_effort(),
     std::bind(&Detector::topic_callback_pointcloud, this, _1));
 
   publisher_pointcloud_ = this->create_publisher<sensor_msgs::msg::PointCloud2>(

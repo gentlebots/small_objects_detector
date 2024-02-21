@@ -31,7 +31,7 @@ def generate_launch_description():
             }],
             # Use topics from robot
             remappings=[
-                ('/pointcloud_in', '/head_front_camera/depth_registered/points'),
+                ('/pointcloud_in', '/camera/depth_registered/points'),
             ],
         )
     ])
