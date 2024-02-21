@@ -21,7 +21,7 @@ def generate_launch_description():
     return LaunchDescription([
         Node(
             package='small_objects_detector',
-            namespace='small_objects_detector',
+            namespace='',
             executable='detector',
             output='both',
             emulate_tty=True,
